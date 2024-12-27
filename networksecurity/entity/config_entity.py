@@ -3,14 +3,14 @@ import os
 from networksecurity.constants import training_pipeline
 
 print(training_pipeline.PIPELINE_NAME)
-print(training_pipeline.ARTIFACTS_DIR)
+print(training_pipeline.ARTIFACT_DIR)
 
 
 class TrainingPipelineConfig:
     def __init__(self,time_stamp=datetime.now()):
         timestamp = time_stamp.strftime("%m_%d_%Y_%H_%M_%S")
         self.pipeline_name = training_pipeline.PIPELINE_NAME
-        self.artifacts_name = training_pipeline.ARTIFACTS_DIR
+        self.artifacts_name = training_pipeline.ARTIFACT_DIR
         self.artifact_dir = os.path.join(self.artifacts_name,timestamp)
         self.timestamp: str = timestamp
 
