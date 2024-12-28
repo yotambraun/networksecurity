@@ -152,6 +152,7 @@ Below is a high-level overview of the project pipeline:
  ┃ ┗ 📜table.html
  ┣ 📜README.md  <-- (You are here!)
  ┗ ...
+```
 
 # Key directories and files:
 
@@ -162,7 +163,6 @@ Below is a high-level overview of the project pipeline:
 - **requirements.txt**: Project dependencies.
 - **Dockerfile**: Instructions to build a Docker image containing this app.
 
----
 
 ## Technologies Used
 
@@ -176,7 +176,7 @@ Below is a high-level overview of the project pipeline:
 - **GitHub Actions** for CI/CD pipelines
 - **MongoDB** (Atlas or self-hosted) for data storage
 
----
+
 
 ## Local Setup
 
