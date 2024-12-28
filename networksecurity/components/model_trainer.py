@@ -25,13 +25,6 @@ from dotenv import load_dotenv
 load_dotenv()
 dagshub.init(repo_owner='yotambraun', repo_name='networksecuirty', mlflow=True)
 
-# os.environ["MLFLOW_TRACKING_URI"]="https://dagshub.com/yotambraun/networksecurity.mlflow"
-# os.environ["MLFLOW_TRACKING_USERNAME"]="yotambraun"
-# os.environ["MLFLOW_TRACKING_PASSWORD"]="7104284f1bb44ece21e0e2adb4e36a250ae3251f"
-# MLFLOW_TRACKING_URI = os.getenv("MLFLOW_TRACKING_URI")
-
-
-
 class ModelTrainer:
     def __init__(self,model_trainer_config:ModelTrainerConfig,data_transformation_artifact:DataTransformationArtifact):
         try:

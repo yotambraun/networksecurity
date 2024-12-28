@@ -1,0 +1,6 @@
+2024-12-28 20:11:13,993 - httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+2024-12-28 20:11:13,997 - dagshub - INFO - Accessing as yotambraun
+2024-12-28 20:11:14,222 - httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/yotambraun/networksecuirty "HTTP/1.1 200 OK"
+2024-12-28 20:11:14,429 - httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+2024-12-28 20:11:14,431 - dagshub - INFO - Initialized MLflow to track repo "yotambraun/networksecuirty"
+2024-12-28 20:11:14,432 - dagshub - INFO - Repository yotambraun/networksecuirty initialized!

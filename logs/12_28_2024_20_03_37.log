@@ -1,0 +1,11 @@
+2024-12-28 20:03:40,497 - httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+2024-12-28 20:03:40,501 - dagshub - INFO - Accessing as yotambraun
+2024-12-28 20:03:40,728 - httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/repos/yotambraun/networksecuirty "HTTP/1.1 200 OK"
+2024-12-28 20:03:40,927 - httpx - INFO - HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+2024-12-28 20:03:40,929 - dagshub - INFO - Initialized MLflow to track repo "yotambraun/networksecuirty"
+2024-12-28 20:03:40,930 - dagshub - INFO - Repository yotambraun/networksecuirty initialized!
+2024-12-28 20:03:41,227 - fastapi - ERROR - Form data requires "python-multipart" to be installed. 
+You can install "python-multipart" with: 
+
+pip install python-multipart
+
