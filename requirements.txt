@@ -6,6 +6,6 @@ certifi
 scikit-learn
 scipy
 pyyaml
-# pymongo[srv]==3.6
+
 
 ##-e .
