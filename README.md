@@ -265,7 +265,7 @@ During the **TrainingPipeline** run:
 * **Final Models** are stored in final_model/<timestamp> within the same S3 bucket.
 These sync operations are handled by the S3Sync class, which uploads local directories to S3. In case of re-runs or deployment, you can retrieve these artifacts directly from S3 for consistency and backup.
 
-### DagsHub
+## DagsHub
 DagsHub is a platform that integrates version control for data and models, experiment tracking (via MLflow). By using DagsHub:
 
 **Experiment Tracking**: DagsHub natively supports MLflow, so you can track experiments, metrics, and artifacts seamlessly.
