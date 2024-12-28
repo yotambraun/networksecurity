@@ -20,18 +20,15 @@ from sklearn.ensemble import (
 )
 import mlflow
 from urllib.parse import urlparse
-
 import dagshub
 from dotenv import load_dotenv
-
 load_dotenv()
-
 dagshub.init(repo_owner='yotambraun', repo_name='networksecuirty', mlflow=True)
 
 # os.environ["MLFLOW_TRACKING_URI"]="https://dagshub.com/yotambraun/networksecurity.mlflow"
 # os.environ["MLFLOW_TRACKING_USERNAME"]="yotambraun"
 # os.environ["MLFLOW_TRACKING_PASSWORD"]="7104284f1bb44ece21e0e2adb4e36a250ae3251f"
-MLFLOW_TRACKING_URI = os.getenv("MLFLOW_TRACKING_URI")
+# MLFLOW_TRACKING_URI = os.getenv("MLFLOW_TRACKING_URI")
 
 
 
@@ -43,8 +40,8 @@ class ModelTrainer:
         except Exception as e:
             raise NetworkSecurityException(e,sys)
         
-    def track_mlflow(self,best_model,classificationmetric,mlflow_uri=MLFLOW_TRACKING_URI):
-        mlflow.set_registry_uri(mlflow_uri)
+    def track_mlflow(self,best_model,classificationmetric):
+        # mlflow.set_registry_uri(mlflow_uri)
         tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
         with mlflow.start_run():
             f1_score=classificationmetric.f1_score
@@ -64,13 +61,14 @@ class ModelTrainer:
                 # There are other ways to use the Model Registry, which depends on the use case,
                 # please refer to the doc for more information:
                 # https://mlflow.org/docs/latest/model-registry.html#api-workflow
-                mlflow.sklearn.log_model(best_model, "model", registered_model_name=best_model)
+                mlflow.sklearn.log_model(best_model, "model", registered_model_name=best_model.__class__.__name__)
+
             else:
                 mlflow.sklearn.log_model(best_model, "model")
 
 
         
-    def train_model(self,X_train,y_train,x_test,y_test,mlflow_uri):
+    def train_model(self,X_train,y_train,x_test,y_test):
         models = {
                 "Random Forest": RandomForestClassifier(verbose=1),
                 "Decision Tree": DecisionTreeClassifier(),
@@ -122,13 +120,13 @@ class ModelTrainer:
         classification_train_metric=get_classification_score(y_true=y_train,y_pred=y_train_pred)
         
         ## Track the experiements with mlflow
-        self.track_mlflow(best_model,classification_train_metric,mlflow_uri)
+        self.track_mlflow(best_model,classification_train_metric)
 
 
         y_test_pred=best_model.predict(x_test)
         classification_test_metric=get_classification_score(y_true=y_test,y_pred=y_test_pred)
 
-        self.track_mlflow(best_model,classification_test_metric,mlflow_uri)
+        self.track_mlflow(best_model,classification_test_metric)
 
         preprocessor = load_object(file_path=self.data_transformation_artifact.transformed_object_file_path)
             
@@ -149,13 +147,6 @@ class ModelTrainer:
         logging.info(f"Model trainer artifact: {model_trainer_artifact}")
         return model_trainer_artifact
 
-
-        
-
-
-       
-    
-    
         
     def initiate_model_trainer(self)->ModelTrainerArtifact:
         try:
