@@ -52,6 +52,8 @@ This project aims to build an end-to-end MLOps pipeline for **phishing detection
 
 ## Architecture
 
+![Network Security Phishing Detection Pipeline](C:\Users\yotam\code_projects\networksecurity\architecture_network.png)
+
 Below is a high-level overview of the project pipeline:
 
       ┌───────────────────────────┐
